@@ -73,8 +73,8 @@ Exemple d'aplicació Symfony amb MySQL i Bootstrap 5. Ús de login, registre, co
 - or http://127.0.0.1:8000/registre
 
 
-![Screenshot](public/img/1.png)
+![Screenshot](screenshots/img/1.png)
 
-![Screenshot](public/img/2.png)
+![Screenshot](screenshots/img/2.png)
 
-![Screenshot](public/img/3.png)
+![Screenshot](screenshots/img/3.png)
