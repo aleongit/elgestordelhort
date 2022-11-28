@@ -1,0 +1,52 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+
+home:
+    path: /
+    controller: App\Controller\HomeController::index
+
+test:
+    path: /tasks
+    controller: App\Controller\TaskController::test
+
+tasques:
+    path: /tasques
+    controller: App\Controller\TaskController::tasques
+
+meves:
+    path: /meves
+    controller: App\Controller\TaskController::meves
+
+tasca_detall:
+    path: /tasca/{id}
+    controller: App\Controller\TaskController::detall
+
+tasca_crear:
+    path: /crear
+    controller: App\Controller\TaskController::crear
+
+tasca_editar:
+    path: /editar/{id}
+    controller: App\Controller\TaskController::editar
+
+tasca_borrar:
+    path: /borrar/{id}
+    controller: App\Controller\TaskController::borrar
+
+registre:
+    path: /registre
+    controller: App\Controller\UserController::register
+
+login:
+    path: /login
+    controller: App\Controller\UserController::login
+
+logout:
+    path: /logout
+
+

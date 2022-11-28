@@ -1,0 +1,30 @@
+
+{% extends 'layouts/plantilla.twig' %}
+
+{% block title %}Tasca {{tasca.id}} - {% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block marketing %}{% endblock %}
+
+{% block content %}
+    <div class="container">
+    
+    <div class="card">
+    <h1 class="card-header">#{{ tasca.id }} {{ tasca.title }}</h1>
+    <div class="card-body">
+        <h2 class="card-text">{{ tasca.content }}</h2>
+        <h3 class="card-text">by {{ tasca.user.name }} from {{ tasca.createdAt|date("m/d/Y H:m") }}</h3>
+        <h4 class="card-text">priority {{ tasca.priority|trans }} | {{ tasca.hours }} hours</h4>
+        
+        <!-- butons -->
+        <br><br>
+        {% if app.user == tasca.user %}
+            <a href="{{ path('tasca_editar', {'id':tasca.id} ) }}"><button type="button" class="btn btn-warning">Edita</button></a>
+            {{ include('includes/modal_borra.twig') }}
+        {% endif %}        
+    </div>
+    </div>
+
+    </div>
+{% endblock %}

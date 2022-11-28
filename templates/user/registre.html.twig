@@ -1,0 +1,46 @@
+
+{% extends 'layouts/plantilla.twig' %}
+
+{% block title %}Registre - {% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block marketing %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-sm-4 bg-secondary p-2 m-4 border">
+    <h2 class="p-2 bg-dark text-light">Registra't</h2>
+        {# {{ form(form) }} #}
+
+        {{ form_start(form) }}
+        
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        <div class=" missatge rounded mt-1 font-monospace bg-danger bg-gradient">
+            {{ form_errors(form.name) }}
+        </div>
+
+        {{ form_label(form.surname) }}
+        {{ form_widget(form.surname) }}
+        <div class=" missatge rounded mt-1 font-monospace bg-danger bg-gradient">
+            {{ form_errors(form.surname) }}
+        </div>
+
+        {{ form_label(form.email) }}
+        {{ form_widget(form.email) }}
+        <div class=" missatge rounded mt-1 font-monospace bg-danger bg-gradient">
+            {{ form_errors(form.email) }}
+        </div>
+
+        {{ form_label(form.password) }}
+        {{ form_widget(form.password) }}
+        <div class=" missatge rounded mt-1 font-monospace bg-danger bg-gradient">
+            {{ form_errors(form.password) }}
+        </div>
+        
+        {{ form_end(form) }}
+
+    </div>
+</div>
+{% endblock %}

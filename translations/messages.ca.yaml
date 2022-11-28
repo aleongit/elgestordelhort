@@ -1,0 +1,8 @@
+# translations/messages.ca.yaml
+
+Symfony is great: Symfony és fantàstic!
+high: Alta
+medium: Mitjana
+low: Baixa
+Invalid credentials.: FATAL ERROR credentials :(
+This value is already used.: FATAL ERROR ja existeix :(

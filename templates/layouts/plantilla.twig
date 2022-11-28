@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}Tasques de l'hort by Aleon</title>
+    <link rel="icon" href="/assets/img/TOMATO.png" type="image/gif" sizes="16x16"><!-- favicon -->
+
+    <!-- css -->
+    {% block stylesheets %}{% endblock %}
+        <link href="{{ asset('/assets/css/bootstrap.css') }}" rel="stylesheet"> <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/tasques.css') }}" >
+    
+    <!-- js -->
+    {% block javascripts %}{% endblock %}
+        {{ encore_entry_script_tags('app') }}
+    <script src="{{ asset('/assets/js/bootstrap.bundle.js') }}"></script>
+
+</head>
+<body>
+
+
+<header>
+<!-- menú superior_________________________________________________________________________ -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      
+      <a class="navbar-brand" href="/">El Gestor de l'hort</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          
+          {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/registre">Join in</a>
+            </li>
+          {% endif %}
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#que">Què fem ?</a>
+          </li>
+
+        </ul>
+          <span class="navbar-text text-white">V 1.0 FEB22</span>
+      </div>
+    </div>
+  </nav>
+
+</header>
+
+<main>
+
+<!-- carousels __________________________________________________________________________________________ -->
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+  {{ include('includes/carousel_user.twig') }}
+{% else %}
+  {{ include('includes/carousel_home.twig') }}
+{% endif %}
+
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+  <!-- menú tasques ____________________________________________________ -->
+  <div class="container-fluid">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Eleventh navbar example">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" >Welcome {{ app.user.name }} :)</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample09">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/tasques">Tasques</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/meves">Meves</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/crear">Crea Tasca</a>
+            </li>
+          </ul>
+
+          <span class="navbar-text text-dark">
+            <a class="nav-link" href="/logout">Logout</a>
+          </span>
+
+
+        <!--
+        <form class="d-flex">
+          <input class="form-control me-2" type="text" placeholder="Cerca" aria-label="Search">
+          <button type="submit" class="btn btn-outline-success ">Cerca!</button>
+        </form> -->
+
+      </div>
+    </div>
+  </nav>
+</div>
+{% endif %}
+
+{% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+
+{% block cap %}{% endblock %}
+
+  {% block marketing %}
+  <!-- contenidor marketing_______________________________________________ -->
+    <div class="container marketing">
+
+      <!-- 3 columnes -->
+      <div class="row text-center py-4 my-2 border-top border-bottom">
+        
+        <div class="col-lg-4">
+          <img src="assets/img/TOMATO.png" class="rounded w-50 p-3" alt="...">
+          <h2>Què és ?</h2>
+          <p>És un gestor per les teves tasques de l'hort. Les gallines fliparan</p>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4">
+          <img src="assets/img/TOMATO.png" class="rounded w-50 p-3" alt="...">
+          <h2>Com és ?</h2>
+          <p>Àgil, ràpid, segur, fet amb Symfony i els seus mòduls composer més top!</p>
+        </div><!-- /.col-lg-4 -->
+
+        <div class="col-lg-4">
+          <img src="assets/img/TOMATO.png" class="rounded w-50 p-3" alt="...">
+          <h2>Qui l'ha fet?</h2>
+          <p>Fet per aleon, un ignorant de l'informàtica i que fa el què pot</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+  </div><!-- /.container -->
+  {% endblock %}
+{% endif %}
+
+<!-- contenidor principal _______________________________________________ -->
+<div class="container-fluid p-4">
+
+    <!-- main _______________________________________________________________-->
+    <div class= 'main'>
+      {% block content %}{% endblock %}
+    </div>
+    
+</div>
+
+
+<!-- què fem ? ________________________________________________________ -->
+<div class="container-fluid">
+<div class="container-fluid p-4 mb-2 border">
+
+  <h2 id = "que" class="p-2 bg-dark text-light">Què fem ?</h2>
+  
+  <p class="fw-bold pt-3">Fem un gestor de tasques amb Symfony</p>
+    <ul>
+      <li>La BBDD ha de tenir 2 taules amb una relació one to many</li>
+      <li>Registre/Login/Logout d'usuaris, amb els formularis i la validació</li>
+      <li>Llistat de totes les tasques</li>
+      <li>Llistat de les meves tasques</li>
+      <li>Detall d'una tasca</li>
+      <li>Crear/Editar/Borrar tasques pròpies de l'usuari loguejat</li>
+      <li>Control d'accés</li>
+    </ul>
+    <!-- Divider--> <hr class="my-4" />
+
+   <p class="fw-bold pt-3">Com ha de ser el vídeo ?</p>
+    <ul>
+      <li>Codi, BBDD i el navegador amb el projecte en marxa</li>
+      <li>Connexió de la BBDD amb el projecte (.env)</li>
+      <li>Entitats i com es relacionen amb les taules de la BBDD, relacions oneToMany i manyToOne, quins getters i propietats s'han afegit a les entitats</li>
+      <li>On és CSS i com es carrega al projecte. Explicar funcionament de plantilla base i quines plantilles hereden d'aquesta</li>
+      <li>Registre d'usuaris. Registrar un usuari omplint malament els camps i mostrar on i com fas el filtre de dades, missatges personalitzats, validacions, etc</li>
+      <li>Registre d'usuaris. Registrar un usuari correctament i mostrar com s'ha donat d'alta correctament a la BBDD</li>
+      <li>Mostrar login, fer login incorrecte i correcte. Un cop a dins fer logout per comprovar que tot funciona correctament</li>
+      <li>Mostrar el llistat general de tasques i el detall d'una tasca</li>
+      <li>Anar a les meves tasques, no n'hi hauria d'haver cap</li>
+      <li>Dóna d'alta una tasca; mostrar el codi i la validació dels formularis. Mostra la part del codi on assignar l'usuari registrat a la tasca i explica com funciona tot plegat</li>
+      <li>Anar al llistat de tasques; nova tasca ha d'aparèixer amb els botons personalitzats</li>
+      <li>Anar a les meves tasques; nova tasca ha d'aparèixer</li>
+      <li>Edita una tasca i mostra els canvis</li>
+      <li>Elimina una tasca</li>
+      <li>Mostrar restriccions d'accés a segons quines rutes</li>
+    </ul>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+  <footer class="py-4 bg-dark text-white-50 p-3">
+    <h5 class="float-end"><a class="btn btn-primary" href="#" role="button">Puja</a></h5>
+    <h5>&copy; 2021-22 Aleix Leon - Les tasques de l'hort - <a class="link-light" href="mailto:hola@elgestordelhort.com"> hola@tasquesdelhort.com </a> &middot; <a class="link-light" href="#">Privacitat</a> &middot; <a class="link-light" href="#">Termes i Condicions</a></h5>
+  </footer>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<div class="container">
+
+{% if tasques is not empty %}
+
+    <table class="table table-hover">
+        <tr>
+            <th>Tasca</th>
+            <th>Prioritat</th>
+            <th>Hores Previstes</th>
+            <th>Accions</th>
+        </tr>
+    {% for tasca in tasques %}
+        <tr>
+            <td> {{ tasca.getTitle() }} </td>
+            <td> {{ tasca.getPriority()|trans }} </td>
+            <td> {{ tasca.getHours() }} </td>
+            <!--butons-->
+            <td>
+                <a href="{{ path('tasca_detall', {'id':tasca.id} ) }}"><button type="button" class="btn btn-success">Mostra</button></a>
+                {% if app.user == tasca.user %}
+                    <a href="{{ path('tasca_editar', {'id':tasca.id} ) }}"><button type="button" class="btn btn-warning">Edita</button></a>
+                    {{ include('includes/modal_borra.twig') }}
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% else %}
+
+<h1 class='text-danger'>* FATAL GANDUL * No tens cap tasca!</h1>
+
+{% endif %}
+
+</div>

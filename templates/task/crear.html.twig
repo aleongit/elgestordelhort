@@ -1,0 +1,31 @@
+
+{% extends 'layouts/plantilla.twig' %}
+
+{% block title %}{{ edit ? 'Editar' : 'Crear' }} Tasca - {% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block marketing %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-sm-4 bg-secondary p-2 m-4 border">
+    <!--el mateix per crear o editar -->
+    <h2 class="p-2 bg-dark text-light">{{ edit ? 'Editar' : 'Crear' }} Tasca</h2>
+        
+        {{ form_start(form) }}
+
+        {{ form_label(form.title) }} {{ form_widget(form.title) }}
+        {{ form_label(form.content) }} {{ form_widget(form.content) }}
+        {{ form_label(form.priority) }} {{ form_widget(form.priority) }}
+        {{ form_label(form.hours) }} {{ form_widget(form.hours) }}
+
+        {% if edit %}
+        {{ form_widget(form.submit, {'label': 'Edita Tasca!'}) }}
+        {% endif %}
+
+        {{ form_end(form) }}
+
+    </div>
+</div>
+{% endblock %}
