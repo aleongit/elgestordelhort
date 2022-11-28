@@ -74,3 +74,7 @@ Exemple d'aplicació Symfony amb MySQL i Bootstrap 5. Ús de login, registre, co
 
 
 ![Screenshot](public/img/1.png)
+
+![Screenshot](public/img/2.png)
+
+![Screenshot](public/img/3.png)
