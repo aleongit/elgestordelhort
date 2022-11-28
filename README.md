@@ -2,6 +2,7 @@
 
 Exemple d'aplicació Symfony amb MySQL i Bootstrap 5. Ús de login i registre, vistes amb templates twig, models (entitats), controladors, rutes, forms i validacions.
 
+
 ## Requeriments
 
 🖥️ php -v
@@ -18,7 +19,10 @@ Exemple d'aplicació Symfony amb MySQL i Bootstrap 5. Ús de login i registre, v
 
 🖥️ php bin/console --version
 → Symfony 6.0.4
-**https://symfony.com/doc/current/index.html**
+
+
+## Doc
+- **https://symfony.com/doc/current/index.html**
 
 
 ## For New project
