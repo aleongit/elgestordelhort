@@ -5,6 +5,7 @@
     <table class="table table-hover">
         <tr>
             <th>Tasca</th>
+            <th>User</th>
             <th>Prioritat</th>
             <th>Hores Previstes</th>
             <th>Accions</th>
@@ -12,6 +13,7 @@
     {% for tasca in tasques %}
         <tr>
             <td> {{ tasca.getTitle() }} </td>
+            <td> {{ tasca.user.name }} </td>
             <td> {{ tasca.getPriority()|trans }} </td>
             <td> {{ tasca.getHours() }} </td>
             <!--butons-->
