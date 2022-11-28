@@ -1,6 +1,6 @@
 # El Gestor de l'Hort
 
-TODO:
+Exemple d'aplicació Symfony amb MySQL i Bootstrap 5. Ús de login i registre, vistes amb templates twig, models (entitats), controladors, rutes, forms i validacions.
 
 ## Requeriments
 
@@ -15,6 +15,10 @@ TODO:
 
 🖥️ symfony -v
 → Symfony CLI version 5.2.2
+
+🖥️ php bin/console --version
+→ Symfony 6.0.4
+**https://symfony.com/doc/current/index.html**
 
 
 ## For New project
@@ -36,6 +40,20 @@ TODO:
 - composer require symfonycasts/verify-email-bundle
 - composer require sensio/framework-extra-bundle
 - composer require symfony/twig-pack
+- **Make controllers and entities**
+- php bin/console make:controller Home
+- php bin/console make:controller User
+- php bin/console make:controller Task
+- php bin/console doctrine:migrations:status
+- php bin/console doctrine:migrations:sync-metadata-storage
+- php bin/console doctrine:mapping:import "App\Entity" annotation --path=src/Entity
+- php bin/console make:entity --regenerate App
+- **Console**
+- php bin/console --version
+- php bin/console list
+- php bin/console about
+- php bin/console cache:clear
+- php bin/console dbal:run-sql "SELECT * FROM users"
 
 
 ## Get Started
@@ -46,7 +64,9 @@ TODO:
 - .env
 - symfony server:start
 - http://127.0.0.1:8000
-- http://127.0.0.1:8000/registre
+- user: pepet@gmail.com 1234
+- user: pepeta@gmail.com 1234
+- or http://127.0.0.1:8000/registre
 
 
 ![Screenshot](public/img/1.png)
