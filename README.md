@@ -1,6 +1,6 @@
 # El Gestor de l'Hort
 
-Exemple d'aplicació Symfony amb MySQL i Bootstrap 5. Ús de login i registre, vistes amb templates twig, models (entitats), controladors, rutes, forms i validacions.
+Exemple d'aplicació Symfony amb MySQL i Bootstrap 5. Ús de login, registre, control d'accés, vistes amb templates twig, models (entitats), controladors, rutes, forms, validacions, layout, includes i traduccions.
 
 
 ## Requeriments
